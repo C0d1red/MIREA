@@ -12,6 +12,7 @@ public class Caesar {
     private int revertKey;
 
     public Caesar() {
+        key = getRandomInt();
         alphabetUtils = new AlphabetUtils();
     }
 

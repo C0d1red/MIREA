@@ -22,4 +22,9 @@ public class BasicUtils {
         return list.toArray(new String[0]);
     }
 
+    public static int getRandomInt() {
+        Random random = new Random();
+        return random.nextInt();
+    }
+
 }
