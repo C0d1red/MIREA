@@ -1,7 +1,7 @@
 package com.c0d1red;
 
 import com.c0d1red.caesar.Caesar;
-import com.c0d1red.caesar.FrequencyAnalysis;
+import com.c0d1red.caesar.FrequencyAnalyser;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,11 +17,11 @@ public class TestScript {
     private static final String FILENAME_DECRYPTED_BY_SOLO_FREQUENCY = "decrypted_by_solo_frequency.txt";
     private static final String FILENAME_DECRYPTED_BY_BIGRAM_FREQUENCY = "decrypted_by_bigram_frequency.txt";
     private final Caesar caesar;
-    private final FrequencyAnalysis frequencyAnalysis;
+    private final FrequencyAnalyser frequencyAnalyser;
 
     public TestScript() throws IOException {
          caesar = new Caesar(CAESAR_KEY);
-         frequencyAnalysis = new FrequencyAnalysis();
+         frequencyAnalyser = new FrequencyAnalyser();
          if (!Files.exists(Path.of(OUTPUT_DIRECTORY))){
              Files.createDirectory(Path.of(OUTPUT_DIRECTORY));
          }
@@ -40,14 +40,14 @@ public class TestScript {
     }
 
     public Map<String, Float> runSoloFrequencyScript(String term, String cryptType) {
-        Map<String, Float> soloFrequencyMap = frequencyAnalysis.makeSoloAnalysis(term);
+        Map<String, Float> soloFrequencyMap = frequencyAnalyser.makeSoloAnalysis(term);
         System.out.println();
         System.out.println(cryptType + " solo frequency map:\n" + soloFrequencyMap);
         return soloFrequencyMap;
     }
 
     public Map<String, Float> runBigramFrequencyScript(String term, String cryptType) {
-        Map<String, Float> bigramFrequencyMap= frequencyAnalysis.makeBigramAnalysis(term);
+        Map<String, Float> bigramFrequencyMap= frequencyAnalyser.makeBigramAnalysis(term);
         System.out.println();
         System.out.println(cryptType + " bigram frequency map:\n" + bigramFrequencyMap);
         return bigramFrequencyMap;

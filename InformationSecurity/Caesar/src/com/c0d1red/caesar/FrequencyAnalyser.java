@@ -5,7 +5,7 @@ import java.util.*;
 import static com.c0d1red.util.BasicUtils.PAIR_COUNT;
 import static com.c0d1red.util.BasicUtils.getStringArrayFromList;
 
-public class FrequencyAnalysis {
+public class FrequencyAnalyser {
     private static final int QUANTITY_ONE = 1;
 
     public Map<String, Float> makeSoloAnalysis(String term){
