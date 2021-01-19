@@ -1,0 +1,11 @@
+function mult(a, b) {
+    val = a * b;
+    return val;
+}
+
+function add(a, b) {
+    foo = a + b;
+    return foo;
+}
+
+result = mult(10, 10) + add(1, 2);

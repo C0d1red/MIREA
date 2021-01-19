@@ -1,0 +1,12 @@
+function calc(a, b) {
+    foo = a * b + 15;
+    return foo;
+}
+
+a = 4;
+b = 6;
+
+while (a > 0) {
+    a = a - (13 + 6);
+    b = b + calc(4, 4);
+}
