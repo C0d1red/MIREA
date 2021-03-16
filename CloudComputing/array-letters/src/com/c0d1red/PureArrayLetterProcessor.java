@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class PureArrayLetterProcessor {
 
-    public HashMap<Character, Integer> process(String[] array, int idx, HashMap<Character, Integer> identifierStrength) {
+    public HashMap<Character, Integer> execute(String[] array, int idx, HashMap<Character, Integer> identifierStrength) {
         if(idx <= 0) {
             return identifierStrength;
         }
@@ -21,6 +21,6 @@ public class PureArrayLetterProcessor {
         } else {
             identifierStrength.put(elementIdentifier, arrayElementStrength);
         }
-        return process(array, idx - 1, identifierStrength);
+        return execute(array, idx - 1, identifierStrength);
     }
 }

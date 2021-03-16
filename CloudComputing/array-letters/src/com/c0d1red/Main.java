@@ -13,7 +13,7 @@ public class Main {
         String[] arr = {"cccccccc", "ddd", "bbbbbbbbbb", "b", "aaa", "cccc", "c"};
         HashMap<Character, Integer> result = new HashMap<>();
         PureArrayLetterProcessor pureArrayLetterProcessor = new PureArrayLetterProcessor();
-        result = pureArrayLetterProcessor.process(arr, arr.length, result);
+        result = pureArrayLetterProcessor.execute(arr, arr.length, result);
         System.out.format("Result for array %s: \n%s", Arrays.toString(arr), result);
     }
 }
