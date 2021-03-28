@@ -38,17 +38,17 @@ public class ATE {
         System.out.format("%s started the call\n", Thread.currentThread().getName());
     }
 
-    private void finishConnection() {
-        isCalling = false;
-        System.out.format("%s finished the call\n", Thread.currentThread().getName());
-    }
-
     private void callProcess() {
         try {
             TimeUnit.SECONDS.sleep(getRandomCallTime());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    private void finishConnection() {
+        isCalling = false;
+        System.out.format("%s finished the call\n", Thread.currentThread().getName());
     }
 
     private int getRandomCallTime() {
