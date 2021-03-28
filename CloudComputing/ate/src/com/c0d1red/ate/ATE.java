@@ -9,17 +9,38 @@ public class ATE {
     private static final int SECONDS_CALL_MIN = 2;
     private static final int SECONDS_CALL_MAX = 10;
     private final Lock lock;
+    private boolean isCalling;
 
     public ATE() {
         lock = new ReentrantLock();
+        isCalling = false;
     }
 
     public void doCall() {
         lock.lock();
-        System.out.format("%s started the call\n", Thread.currentThread().getName());
+
+        checkExplosion();
+        startConnection();
         callProcess();
-        System.out.format("%s ended the call\n", Thread.currentThread().getName());
+        finishConnection();
+
         lock.unlock();
+    }
+
+    private void checkExplosion() {
+        if (isCalling) {
+            throw new ATEExplosionException();
+        }
+    }
+
+    private void startConnection() {
+        isCalling = true;
+        System.out.format("%s started the call\n", Thread.currentThread().getName());
+    }
+
+    private void finishConnection() {
+        isCalling = false;
+        System.out.format("%s finished the call\n", Thread.currentThread().getName());
     }
 
     private void callProcess() {
